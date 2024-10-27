@@ -493,6 +493,11 @@
     <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
     <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
   </PlanificateurTrajetsEcologiques:ChargingStation>
+  <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_1730058134869">
+    <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
+    <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
+    <PlanificateurTrajetsEcologiques:ChargingSpeed>22.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
+  </PlanificateurTrajetsEcologiques:ChargingStation>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_f3e12c34-4606-42e9-b31c-490bc64ac5f2">
     <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
     <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
