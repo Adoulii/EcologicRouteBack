@@ -438,6 +438,10 @@
     <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
   </owl:DatatypeProperty>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_5">
+    <PlanificateurTrajetsEcologiques:TrafficLevel>LOW</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>50</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730040571901">
     <PlanificateurTrajetsEcologiques:SpeedValue>30.0</PlanificateurTrajetsEcologiques:SpeedValue>
     <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
@@ -450,6 +454,16 @@
     <PlanificateurTrajetsEcologiques:SpeedValue>45.0</PlanificateurTrajetsEcologiques:SpeedValue>
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
   </PlanificateurTrajetsEcologiques:Speed>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_11">
+    <PlanificateurTrajetsEcologiques:ID>11</PlanificateurTrajetsEcologiques:ID>
+    <PlanificateurTrajetsEcologiques:TrafficLevel>HIGH</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>30</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_10">
+    <PlanificateurTrajetsEcologiques:ID>10</PlanificateurTrajetsEcologiques:ID>
+    <PlanificateurTrajetsEcologiques:TrafficLevel>HIGH</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>30</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration1">
     <PlanificateurTrajetsEcologiques:hasDurationForDistance rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1"/>
     <PlanificateurTrajetsEcologiques:ExactDuration rdf:datatype=
@@ -467,6 +481,11 @@
     <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>5.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
   </PlanificateurTrajetsEcologiques:Route>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_21">
+    <PlanificateurTrajetsEcologiques:ID>21</PlanificateurTrajetsEcologiques:ID>
+    <PlanificateurTrajetsEcologiques:TrafficLevel>HIGH</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>40</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#SunnyWeather">
     <PlanificateurTrajetsEcologiques:affectsTrafficCondition>
       <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition1">
@@ -483,11 +502,19 @@
     <PlanificateurTrajetsEcologiques:WeatherType>Sunny</PlanificateurTrajetsEcologiques:WeatherType>
     <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_2">
+    <PlanificateurTrajetsEcologiques:TrafficLevel>LOW</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>25</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_29648d04-d5d9-4ac7-afd0-5e2d913d9d08">
     <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
     <PlanificateurTrajetsEcologiques:DistanceValue>140.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
   </PlanificateurTrajetsEcologiques:Route>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_44">
+    <PlanificateurTrajetsEcologiques:TrafficLevel>LOW</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>100</PlanificateurTrajetsEcologiques:AverageDelay>
+  </rdf:Description>
   <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_1730019560279">
     <PlanificateurTrajetsEcologiques:ChargingSpeed>50.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
     <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
@@ -498,6 +525,10 @@
     <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>5.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
   </PlanificateurTrajetsEcologiques:Route>
+  <PlanificateurTrajetsEcologiques:TrafficCondition rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_54">
+    <PlanificateurTrajetsEcologiques:TrafficLevel>LOW</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>0</PlanificateurTrajetsEcologiques:AverageDelay>
+  </PlanificateurTrajetsEcologiques:TrafficCondition>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#slowSpeed">
     <PlanificateurTrajetsEcologiques:SlowSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</PlanificateurTrajetsEcologiques:SlowSpeed>
@@ -543,4 +574,8 @@
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
     <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_100">
+    <PlanificateurTrajetsEcologiques:AverageDelay>253</PlanificateurTrajetsEcologiques:AverageDelay>
+    <PlanificateurTrajetsEcologiques:TrafficLevel>MEDIUM</PlanificateurTrajetsEcologiques:TrafficLevel>
+  </rdf:Description>
 </rdf:RDF>
