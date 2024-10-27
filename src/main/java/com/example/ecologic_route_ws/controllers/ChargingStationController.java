@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.*;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping(path = "charging",produces = "application/json")
 @CrossOrigin(origins = "http://localhost:3000/")
@@ -185,10 +186,11 @@ public class ChargingStationController {
     @PutMapping("/{stationURI}")
     public ResponseEntity<String> updateChargingStation(
             @PathVariable String stationURI,
-            @RequestBody ChargingStation chargingStation) {
+            @RequestBody ChargingStation chargingStation) throws UnsupportedEncodingException {
 
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
-        Individual stationIndividual = ontModel.getIndividual(stationURI);
+        String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString());
+        Individual stationIndividual = ontModel.getIndividual(decodedURI);
 
         if (stationIndividual == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Charging station not found.");
@@ -215,25 +217,31 @@ public class ChargingStationController {
         }
     }
     @GetMapping("/uri")
-    public String getChargingStationByURI(@RequestParam("URI") String stationURI) throws UnsupportedEncodingException {
-        System.out.println("Received params edit: " + stationURI);
-        String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString())
-                .replaceFirst("^URI=", "");
-        System.out.println("Decoded URI: " + decodedURI);
+    public ResponseEntity<String> getChargingStationByURI(@RequestParam("URI") String stationURI) {
+        Logger logger = LoggerFactory.getLogger(getClass());
 
-        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+        try {
+            String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString())
+                    .replaceFirst("^URI=", "")
+                    .trim();
 
-        Individual stationIndividual = ontModel.getIndividual(decodedURI);
+            logger.info("Original URI: {}", stationURI);
+            logger.info("Decoded URI: {}", decodedURI);
 
-        System.out.println("stationIndividual: " + stationIndividual);
+            OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+            Individual stationIndividual = ontModel.getIndividual(decodedURI);
+
+            logger.info("Station Individual: {}", stationIndividual);
 
             String queryString = "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
                     "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
                     "SELECT ?chargingSpeed ?fastCharging ?stationType " +
-                    "WHERE { <" + stationURI + "> rdf:type ont:ChargingStation; " +
+                    "WHERE { <" + decodedURI + "> rdf:type ont:ChargingStation; " +  // Use decodedURI here
                     "              ont:ChargingSpeed ?chargingSpeed; " +
                     "              ont:FastCharging ?fastCharging; " +
                     "              ont:StationType ?stationType. }";
+
+            logger.info("SPARQL Query: {}", queryString);
 
             QueryExecution qe = QueryExecutionFactory.create(queryString, ontModel);
             ResultSet results = qe.execSelect();
@@ -241,9 +249,19 @@ public class ChargingStationController {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             ResultSetFormatter.outputAsJSON(outputStream, results);
             String json = new String(outputStream.toByteArray());
-            JSONObject j = new JSONObject(json);
-            return j.getJSONObject("results").getJSONArray("bindings").toString();
 
+            logger.info("Query Results: {}", json);
 
+            JSONObject jsonObj = new JSONObject(json);
+            String resultArray = jsonObj.getJSONObject("results").getJSONArray("bindings").toString();
+
+            logger.info("Final Response: {}", resultArray);
+
+            return ResponseEntity.ok(resultArray);
+
+        } catch (Exception e) {
+            logger.error("Error processing request", e);
+            return ResponseEntity.badRequest().body("Error: " + e.getMessage());
+        }
     }
 }
