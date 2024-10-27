@@ -16,10 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping(path = "charging",produces = "application/json")
@@ -216,28 +215,35 @@ public class ChargingStationController {
         }
     }
     @GetMapping("/uri")
-    public ResponseEntity<String> getChargingStationByURI(@RequestParam("URI") String stationURI) {
-        String queryString = "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
-                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-                "SELECT ?station ?chargingSpeed ?fastCharging ?stationType " +
-                "WHERE { <" + stationURI + "> rdf:type ont:ChargingStation; " +
-                "              ont:ChargingSpeed ?chargingSpeed; " +
-                "              ont:FastCharging ?fastCharging; " +
-                "              ont:StationType ?stationType. " +
-                "BIND(<" + stationURI + "> as ?station) }";
+    public String getChargingStationByURI(@RequestParam("URI") String stationURI) throws UnsupportedEncodingException {
+        System.out.println("Received params edit: " + stationURI);
+        String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString())
+                .replaceFirst("^URI=", "");
+        System.out.println("Decoded URI: " + decodedURI);
 
-        QueryExecution qe = QueryExecutionFactory.create(queryString, model);
-        ResultSet results = qe.execSelect();
+        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
 
-        if (!results.hasNext()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Charging station not found.");
-        }
+        Individual stationIndividual = ontModel.getIndividual(decodedURI);
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        ResultSetFormatter.outputAsJSON(outputStream, results);
-        String json = new String(outputStream.toByteArray());
+        System.out.println("stationIndividual: " + stationIndividual);
 
-        JSONObject j = new JSONObject(json);
-        return ResponseEntity.ok(j.getJSONObject("results").getJSONArray("bindings").toString());
+            String queryString = "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
+                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                    "SELECT ?chargingSpeed ?fastCharging ?stationType " +
+                    "WHERE { <" + stationURI + "> rdf:type ont:ChargingStation; " +
+                    "              ont:ChargingSpeed ?chargingSpeed; " +
+                    "              ont:FastCharging ?fastCharging; " +
+                    "              ont:StationType ?stationType. }";
+
+            QueryExecution qe = QueryExecutionFactory.create(queryString, ontModel);
+            ResultSet results = qe.execSelect();
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ResultSetFormatter.outputAsJSON(outputStream, results);
+            String json = new String(outputStream.toByteArray());
+            JSONObject j = new JSONObject(json);
+            return j.getJSONObject("results").getJSONArray("bindings").toString();
+
+
     }
 }
