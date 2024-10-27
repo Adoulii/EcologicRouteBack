@@ -176,7 +176,7 @@
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vehicle not found.");
             }
         }
-        
+
 
         @GetMapping("/search")
         public String searchVehicles(
