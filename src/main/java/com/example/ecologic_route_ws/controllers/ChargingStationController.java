@@ -16,11 +16,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
+import java.io.*;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping(path = "charging",produces = "application/json")
 @CrossOrigin(origins = "http://localhost:3000/")
@@ -88,6 +88,8 @@ public class ChargingStationController {
 
     @DeleteMapping
     public ResponseEntity<String> deleteChargingStation(@RequestParam("URI") String stationURI) {
+        System.out.println("Received params: " + stationURI);
+
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
 
         Individual stationIndividual = ontModel.getIndividual(stationURI);
@@ -109,7 +111,6 @@ public class ChargingStationController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<String> getChargingStationById(@PathVariable("id") String stationId) {
-        // Define the query with the specific station URI
         String stationURI = NAMESPACE + stationId;
         String queryString = "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
                 "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
@@ -132,5 +133,135 @@ public class ChargingStationController {
 
         JSONObject j = new JSONObject(json);
         return ResponseEntity.ok(j.getJSONObject("results").getJSONArray("bindings").toString());
+    }
+
+
+
+    @GetMapping("/search")
+    public String searchChargingStations(
+            @RequestParam(required = false) String stationType,
+            @RequestParam(required = false) String minSpeed,
+            @RequestParam(required = false) String maxSpeed,
+            @RequestParam(required = false) Boolean fastCharging) {
+
+        StringBuilder queryString = new StringBuilder(
+                "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
+                        "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                        "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> " +
+                        "SELECT ?station ?chargingSpeed ?fastCharging ?stationType " +
+                        "WHERE { ?station rdf:type ont:ChargingStation; " +
+                        "              ont:ChargingSpeed ?chargingSpeed; " +
+                        "              ont:FastCharging ?fastCharging; " +
+                        "              ont:StationType ?stationType. "
+        );
+
+        if (stationType != null && !stationType.isEmpty()) {
+            queryString.append("FILTER(?stationType = \"").append(stationType).append("\") ");
+        }
+
+        if (minSpeed != null) {
+            queryString.append("FILTER(xsd:double(?chargingSpeed) >= ").append(minSpeed).append(") ");
+        }
+
+        if (maxSpeed != null) {
+            queryString.append("FILTER(xsd:double(?chargingSpeed) <= ").append(maxSpeed).append(") ");
+        }
+
+        if (fastCharging != null) {
+            queryString.append("FILTER(?fastCharging = \"").append(fastCharging).append("\") ");
+        }
+
+        queryString.append("}");
+
+        QueryExecution qe = QueryExecutionFactory.create(queryString.toString(), model);
+        ResultSet results = qe.execSelect();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ResultSetFormatter.outputAsJSON(outputStream, results);
+        String json = new String(outputStream.toByteArray());
+
+        JSONObject j = new JSONObject(json);
+        return j.getJSONObject("results").getJSONArray("bindings").toString();
+    }
+
+    @PutMapping("/{stationURI}")
+    public ResponseEntity<String> updateChargingStation(
+            @PathVariable String stationURI,
+            @RequestBody ChargingStation chargingStation) throws UnsupportedEncodingException {
+
+        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+        String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString());
+        Individual stationIndividual = ontModel.getIndividual(decodedURI);
+
+        if (stationIndividual == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Charging station not found.");
+        }
+
+        stationIndividual.removeProperty(ontModel.getDatatypeProperty(NAMESPACE + "ChargingSpeed"), null);
+        stationIndividual.removeProperty(ontModel.getDatatypeProperty(NAMESPACE + "FastCharging"), null);
+        stationIndividual.removeProperty(ontModel.getDatatypeProperty(NAMESPACE + "StationType"), null);
+
+        stationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "ChargingSpeed"),
+                String.valueOf(chargingStation.getChargingSpeed()));
+        stationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "FastCharging"),
+                String.valueOf(chargingStation.isFastCharging()));
+        stationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "StationType"),
+                chargingStation.getStationType());
+
+        try (OutputStream outputStream = new FileOutputStream(RDF_FILE)) {
+            ontModel.write(outputStream, "RDF/XML-ABBREV");
+            return ResponseEntity.ok("Charging station updated successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to update the charging station.");
+        }
+    }
+    @GetMapping("/uri")
+    public ResponseEntity<String> getChargingStationByURI(@RequestParam("URI") String stationURI) {
+        Logger logger = LoggerFactory.getLogger(getClass());
+
+        try {
+            String decodedURI = URLDecoder.decode(stationURI, StandardCharsets.UTF_8.toString())
+                    .replaceFirst("^URI=", "")
+                    .trim();
+
+            logger.info("Original URI: {}", stationURI);
+            logger.info("Decoded URI: {}", decodedURI);
+
+            OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+            Individual stationIndividual = ontModel.getIndividual(decodedURI);
+
+            logger.info("Station Individual: {}", stationIndividual);
+
+            String queryString = "PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#> " +
+                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                    "SELECT ?chargingSpeed ?fastCharging ?stationType " +
+                    "WHERE { <" + decodedURI + "> rdf:type ont:ChargingStation; " +  // Use decodedURI here
+                    "              ont:ChargingSpeed ?chargingSpeed; " +
+                    "              ont:FastCharging ?fastCharging; " +
+                    "              ont:StationType ?stationType. }";
+
+            logger.info("SPARQL Query: {}", queryString);
+
+            QueryExecution qe = QueryExecutionFactory.create(queryString, ontModel);
+            ResultSet results = qe.execSelect();
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ResultSetFormatter.outputAsJSON(outputStream, results);
+            String json = new String(outputStream.toByteArray());
+
+            logger.info("Query Results: {}", json);
+
+            JSONObject jsonObj = new JSONObject(json);
+            String resultArray = jsonObj.getJSONObject("results").getJSONArray("bindings").toString();
+
+            logger.info("Final Response: {}", resultArray);
+
+            return ResponseEntity.ok(resultArray);
+
+        } catch (Exception e) {
+            logger.error("Error processing request", e);
+            return ResponseEntity.badRequest().body("Error: " + e.getMessage());
+        }
     }
 }
