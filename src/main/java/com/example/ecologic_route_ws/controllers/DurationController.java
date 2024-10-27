@@ -62,13 +62,19 @@ public class DurationController {
 
     @PostMapping
     public ResponseEntity<String> addDuration(@RequestBody DurationDTO durationDTO) {
-        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
+        // Log the received DTO to verify values
+        System.out.println("Received DurationDTO: ");
+        System.out.println("Exact Duration: " + durationDTO.getExactDuration());
+        System.out.println("Long Duration: " + durationDTO.isLongDuration());
+        System.out.println("Medium Duration: " + durationDTO.isMediumDuration());
+        System.out.println("Short Duration: " + durationDTO.isShortDuration());
 
+        OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
         Individual durationIndividual = ontModel.createIndividual(NAMESPACE + "Duration_" + System.currentTimeMillis(),
                 ontModel.getOntClass(NAMESPACE + "Duration"));
 
         try {
-            // Use exact property names as defined in the ontology
+            // Add properties
             durationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "ExactDuration"),
                     String.valueOf(durationDTO.getExactDuration()));
             durationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "LongDuration"),
@@ -77,7 +83,6 @@ public class DurationController {
                     String.valueOf(durationDTO.isMediumDuration()));
             durationIndividual.addProperty(ontModel.getDatatypeProperty(NAMESPACE + "ShortDuration"),
                     String.valueOf(durationDTO.isShortDuration()));
-
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error setting properties: " + e.getMessage());

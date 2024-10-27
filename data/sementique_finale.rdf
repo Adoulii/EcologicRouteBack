@@ -423,6 +423,44 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062319928">
+    <PlanificateurTrajetsEcologiques:ShortDuration>true</PlanificateurTrajetsEcologiques:ShortDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>false</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration>60</PlanificateurTrajetsEcologiques:ExactDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062530638">
+    <PlanificateurTrajetsEcologiques:ExactDuration>35</PlanificateurTrajetsEcologiques:ExactDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>true</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:ShortDuration>false</PlanificateurTrajetsEcologiques:ShortDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
+  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport_1730065679169">
+    <PlanificateurTrajetsEcologiques:lineNumber>A2123</PlanificateurTrajetsEcologiques:lineNumber>
+    <PlanificateurTrajetsEcologiques:shortDistance rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:shortDistance>
+    <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
+    <PlanificateurTrajetsEcologiques:transportType>TRAIN</PlanificateurTrajetsEcologiques:transportType>
+    <PlanificateurTrajetsEcologiques:arrivalTime>2024-10-27T15:56:00</PlanificateurTrajetsEcologiques:arrivalTime>
+    <PlanificateurTrajetsEcologiques:departureTime>2024-10-27T16:00:00</PlanificateurTrajetsEcologiques:departureTime>
+  </PlanificateurTrajetsEcologiques:PublicTransport>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062098038">
+    <PlanificateurTrajetsEcologiques:ShortDuration>false</PlanificateurTrajetsEcologiques:ShortDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>true</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration>45</PlanificateurTrajetsEcologiques:ExactDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
+  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport_1730068166725">
+    <PlanificateurTrajetsEcologiques:departureTime>2024-10-27T16:00:00</PlanificateurTrajetsEcologiques:departureTime>
+    <PlanificateurTrajetsEcologiques:arrivalTime>2024-10-27T15:56:00</PlanificateurTrajetsEcologiques:arrivalTime>
+    <PlanificateurTrajetsEcologiques:transportType>BUS</PlanificateurTrajetsEcologiques:transportType>
+    <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
+    <PlanificateurTrajetsEcologiques:shortDistance rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:shortDistance>
+    <PlanificateurTrajetsEcologiques:lineNumber>S1236</PlanificateurTrajetsEcologiques:lineNumber>
+  </PlanificateurTrajetsEcologiques:PublicTransport>
   <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration1">
     <PlanificateurTrajetsEcologiques:ShortDuration rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:ShortDuration>
@@ -457,20 +495,36 @@
     <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
     <PlanificateurTrajetsEcologiques:ShortDuration>false</PlanificateurTrajetsEcologiques:ShortDuration>
   </PlanificateurTrajetsEcologiques:Duration>
+  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport_1730066733376">
+    <PlanificateurTrajetsEcologiques:departureTime>2024-10-27T16:00:00</PlanificateurTrajetsEcologiques:departureTime>
+    <PlanificateurTrajetsEcologiques:arrivalTime>2024-10-27T15:56:00</PlanificateurTrajetsEcologiques:arrivalTime>
+    <PlanificateurTrajetsEcologiques:transportType>TRAIN</PlanificateurTrajetsEcologiques:transportType>
+    <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
+    <PlanificateurTrajetsEcologiques:shortDistance rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:shortDistance>
+    <PlanificateurTrajetsEcologiques:lineNumber>D8558</PlanificateurTrajetsEcologiques:lineNumber>
+  </PlanificateurTrajetsEcologiques:PublicTransport>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062344863">
+    <PlanificateurTrajetsEcologiques:ShortDuration>true</PlanificateurTrajetsEcologiques:ShortDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>false</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration>60</PlanificateurTrajetsEcologiques:ExactDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
   <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_1730019560279">
     <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
     <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
     <PlanificateurTrajetsEcologiques:ChargingSpeed>50.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
   </PlanificateurTrajetsEcologiques:ChargingStation>
-  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport_1730045338092">
-    <PlanificateurTrajetsEcologiques:departureTime>2024-10-27T16:00:00</PlanificateurTrajetsEcologiques:departureTime>
-    <PlanificateurTrajetsEcologiques:arrivalTime>2024-10-27T15:56:00</PlanificateurTrajetsEcologiques:arrivalTime>
+  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport_1730067069205">
+    <PlanificateurTrajetsEcologiques:departureTime>2024-10-29T23:10:00</PlanificateurTrajetsEcologiques:departureTime>
+    <PlanificateurTrajetsEcologiques:arrivalTime>2024-10-29T03:14:00</PlanificateurTrajetsEcologiques:arrivalTime>
     <PlanificateurTrajetsEcologiques:transportType>BUS</PlanificateurTrajetsEcologiques:transportType>
     <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
     <PlanificateurTrajetsEcologiques:shortDistance rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:shortDistance>
-    <PlanificateurTrajetsEcologiques:lineNumber>A123</PlanificateurTrajetsEcologiques:lineNumber>
+    <PlanificateurTrajetsEcologiques:lineNumber>A9405</PlanificateurTrajetsEcologiques:lineNumber>
   </PlanificateurTrajetsEcologiques:PublicTransport>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#slowSpeed">
     <PlanificateurTrajetsEcologiques:SpeedValue rdf:datatype=
@@ -479,6 +533,18 @@
     >true</PlanificateurTrajetsEcologiques:SlowSpeed>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PlanificateurTrajetsEcologiques:Speed>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062367411">
+    <PlanificateurTrajetsEcologiques:ShortDuration>false</PlanificateurTrajetsEcologiques:ShortDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>true</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration>1001</PlanificateurTrajetsEcologiques:ExactDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration_1730062392450">
+    <PlanificateurTrajetsEcologiques:ShortDuration>false</PlanificateurTrajetsEcologiques:ShortDuration>
+    <PlanificateurTrajetsEcologiques:MediumDuration>false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration>true</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration>30</PlanificateurTrajetsEcologiques:ExactDuration>
+  </PlanificateurTrajetsEcologiques:Duration>
   <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus1">
     <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
