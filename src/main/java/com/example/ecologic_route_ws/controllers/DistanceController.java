@@ -3,8 +3,7 @@ package com.example.ecologic_route_ws.controllers;
 import com.example.ecologic_route_ws.Models.Distance;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Property;
+
 import org.apache.jena.query.*;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.ontology.*;
@@ -17,7 +16,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/distance", produces = "application/json")
