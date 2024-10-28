@@ -54,6 +54,7 @@ public class RouteController {
                 "              ont:DistanceValue ?distanceValue; " +
                 "              ont:DurationValue ?durationValue. }";
 
+
         try (QueryExecution qe = QueryExecutionFactory.create(queryString, model)) {
             ResultSet results = qe.execSelect();
             if (!results.hasNext()) {
@@ -124,8 +125,8 @@ public class RouteController {
         var co2EmissionProperty = ontModel.getDatatypeProperty(NAMESPACE + "CO2EmissionValue");
         var distanceProperty = ontModel.getDatatypeProperty(NAMESPACE + "DistanceValue");
         var durationProperty = ontModel.getDatatypeProperty(NAMESPACE + "DurationValue");
+        var routeTypeProperty = ontModel.getDatatypeProperty(NAMESPACE + "RouteType"); // Add RouteType property
 
-        // Check if properties are null and log for debugging
         if (co2EmissionProperty == null) {
             System.err.println("CO2EmissionValue property is missing in the ontology.");
         }
@@ -146,7 +147,9 @@ public class RouteController {
         if (durationProperty != null) {
             routeIndividual.addProperty(durationProperty, String.valueOf(route.getDurationValue()));
         }
-
+        if (routeTypeProperty != null && route.getRouteType() != null) { // Ensure RouteType is provided
+            routeIndividual.addProperty(routeTypeProperty, route.getRouteType().name());
+        }
         // Save the model to the RDF file
         try (OutputStream outputStream = new FileOutputStream(RDF_FILE)) {
             ontModel.write(outputStream, "RDF/XML-ABBREV");
