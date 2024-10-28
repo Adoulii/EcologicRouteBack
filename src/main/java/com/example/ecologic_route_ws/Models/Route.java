@@ -11,10 +11,10 @@ public class Route {
     private RouteType routeType;
     // Associations
     private List<ChargingStation> chargingStations;
-//    private Distance distance;
-//    private TrafficCondition trafficCondition;
-//    private UsagePreference usagePreference;
-//    private Vehicle vehicle;
+    private Distance distance;
+    private TrafficCondition trafficCondition;
+    private UsagePreference usagePreference;
+    private Vehicle vehicle;
     private Speed speed;
     // Constructors, getters, and setters
 
@@ -54,17 +54,17 @@ public class Route {
     public void setChargingStations(List<ChargingStation> chargingStations) { this.chargingStations = chargingStations; }
     public Speed getSpeed() { return speed; }  // Getter for Speed
     public void setSpeed(Speed speed) { this.speed = speed; }
-//    public Distance getDistance() { return distance; }
-//    public void setDistance(Distance distance) { this.distance = distance; }
-//
-//    public TrafficCondition getTrafficCondition() { return trafficCondition; }
-//    public void setTrafficCondition(TrafficCondition trafficCondition) { this.trafficCondition = trafficCondition; }
-//
-//    public UsagePreference getUsagePreference() { return usagePreference; }
-//    public void setUsagePreference(UsagePreference usagePreference) { this.usagePreference = usagePreference; }
-//
-//    public Vehicle getVehicle() { return vehicle; }
-//    public void setVehicle(Vehicle vehicle) { this.vehicle = vehicle; }
+    public Distance getDistance() { return distance; }
+    public void setDistance(Distance distance) { this.distance = distance; }
+
+    public TrafficCondition getTrafficCondition() { return trafficCondition; }
+    public void setTrafficCondition(TrafficCondition trafficCondition) { this.trafficCondition = trafficCondition; }
+
+    public UsagePreference getUsagePreference() { return usagePreference; }
+    public void setUsagePreference(UsagePreference usagePreference) { this.usagePreference = usagePreference; }
+
+    public Vehicle getVehicle() { return vehicle; }
+   public void setVehicle(Vehicle vehicle) { this.vehicle = vehicle; }
 }
 
 // Subclass for UrbanRoute
