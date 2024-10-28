@@ -5,7 +5,6 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-  <owl:Ontology rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques"/>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
@@ -16,12 +15,64 @@
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus">
     <rdfs:subClassOf>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Type1Station">
     <rdfs:subClassOf>
-      <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
+      <PlanificateurTrajetsEcologiques:Type2Station rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation">
+        <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
+        <PlanificateurTrajetsEcologiques:FastCharging rdf:datatype=
+        "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:FastCharging>
+        <PlanificateurTrajetsEcologiques:ChargingSpeed rdf:datatype=
+        "http://www.w3.org/2001/XMLSchema#float">22.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
+        <PlanificateurTrajetsEcologiques:chargesVehicle>
+          <PlanificateurTrajetsEcologiques:Vehicle rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle1">
+            <PlanificateurTrajetsEcologiques:CO2EmissionRate rdf:datatype=
+            "http://www.w3.org/2001/XMLSchema#float">0.0</PlanificateurTrajetsEcologiques:CO2EmissionRate>
+            <PlanificateurTrajetsEcologiques:hasCo2Emission>
+              <PlanificateurTrajetsEcologiques:CO2Emission rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2EmissionLow">
+                <PlanificateurTrajetsEcologiques:LowEmission rdf:datatype=
+                "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:LowEmission>
+                <PlanificateurTrajetsEcologiques:HighEmission
+                 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</PlanificateurTrajetsEcologiques:HighEmission>
+                <PlanificateurTrajetsEcologiques:EmissionValue
+                 rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >10.0</PlanificateurTrajetsEcologiques:EmissionValue>
+                <PlanificateurTrajetsEcologiques:influencesCO2Emission>
+                  <PlanificateurTrajetsEcologiques:Distance rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1">
+                    <PlanificateurTrajetsEcologiques:LongDistance
+                     rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                    >true</PlanificateurTrajetsEcologiques:LongDistance>
+                    <PlanificateurTrajetsEcologiques:ExactDistance
+                     rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >20.3</PlanificateurTrajetsEcologiques:ExactDistance>
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </PlanificateurTrajetsEcologiques:Distance>
+                </PlanificateurTrajetsEcologiques:influencesCO2Emission>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </PlanificateurTrajetsEcologiques:CO2Emission>
+            </PlanificateurTrajetsEcologiques:hasCo2Emission>
+            <PlanificateurTrajetsEcologiques:Electric rdf:datatype=
+            "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:Electric>
+            <PlanificateurTrajetsEcologiques:Type>Electric car</PlanificateurTrajetsEcologiques:Type>
+            <PlanificateurTrajetsEcologiques:MaxSpeed rdf:datatype=
+            "http://www.w3.org/2001/XMLSchema#float">120.0</PlanificateurTrajetsEcologiques:MaxSpeed>
+            <PlanificateurTrajetsEcologiques:EnergyConsumption
+             rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >15.0</PlanificateurTrajetsEcologiques:EnergyConsumption>
+            <rdf:type>
+              <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Electric"/>
+            </rdf:type>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </PlanificateurTrajetsEcologiques:Vehicle>
+        </PlanificateurTrajetsEcologiques:chargesVehicle>
+        <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+      </PlanificateurTrajetsEcologiques:Type2Station>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration">
@@ -43,75 +94,6 @@
       <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation">
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
-    <PlanificateurTrajetsEcologiques:chargesVehicle>
-      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle1">
-        <rdf:type>
-          <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Electric"/>
-        </rdf:type>
-        <rdf:type>
-          <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
-        </rdf:type>
-        <PlanificateurTrajetsEcologiques:usesEnergy>
-          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy1">
-            <rdf:type>
-              <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Electric"/>
-            </rdf:type>
-            <PlanificateurTrajetsEcologiques:ConsumptionRate rdf:datatype=
-            "http://www.w3.org/2001/XMLSchema#float">22.2</PlanificateurTrajetsEcologiques:ConsumptionRate>
-            <PlanificateurTrajetsEcologiques:Renewable rdf:datatype=
-            "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:Renewable>
-            <PlanificateurTrajetsEcologiques:Type>Electric</PlanificateurTrajetsEcologiques:Type>
-            <rdf:type>
-              <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
-            </rdf:type>
-          </owl:NamedIndividual>
-        </PlanificateurTrajetsEcologiques:usesEnergy>
-        <PlanificateurTrajetsEcologiques:EnergyConsumption rdf:datatype=
-        "http://www.w3.org/2001/XMLSchema#float">15.0</PlanificateurTrajetsEcologiques:EnergyConsumption>
-        <PlanificateurTrajetsEcologiques:MaxSpeed rdf:datatype=
-        "http://www.w3.org/2001/XMLSchema#float">120.0</PlanificateurTrajetsEcologiques:MaxSpeed>
-        <PlanificateurTrajetsEcologiques:Type>Electric car</PlanificateurTrajetsEcologiques:Type>
-        <PlanificateurTrajetsEcologiques:Electric rdf:datatype=
-        "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:Electric>
-        <PlanificateurTrajetsEcologiques:hasCo2Emission>
-          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2EmissionLow">
-            <PlanificateurTrajetsEcologiques:influencesCO2Emission>
-              <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1">
-                <PlanificateurTrajetsEcologiques:ExactDistance
-                 rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                >20.3</PlanificateurTrajetsEcologiques:ExactDistance>
-                <PlanificateurTrajetsEcologiques:LongDistance
-                 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-                >true</PlanificateurTrajetsEcologiques:LongDistance>
-                <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
-              </owl:NamedIndividual>
-            </PlanificateurTrajetsEcologiques:influencesCO2Emission>
-            <PlanificateurTrajetsEcologiques:EmissionValue rdf:datatype=
-            "http://www.w3.org/2001/XMLSchema#float">10.0</PlanificateurTrajetsEcologiques:EmissionValue>
-            <PlanificateurTrajetsEcologiques:HighEmission rdf:datatype=
-            "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:HighEmission>
-            <PlanificateurTrajetsEcologiques:LowEmission rdf:datatype=
-            "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:LowEmission>
-            <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
-          </owl:NamedIndividual>
-        </PlanificateurTrajetsEcologiques:hasCo2Emission>
-        <PlanificateurTrajetsEcologiques:CO2EmissionRate rdf:datatype=
-        "http://www.w3.org/2001/XMLSchema#float">0.0</PlanificateurTrajetsEcologiques:CO2EmissionRate>
-      </owl:NamedIndividual>
-    </PlanificateurTrajetsEcologiques:chargesVehicle>
-    <PlanificateurTrajetsEcologiques:ChargingSpeed rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#float">22.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
-    <PlanificateurTrajetsEcologiques:FastCharging rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:FastCharging>
-    <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
-    <rdf:type>
-      <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Type2Station"/>
-    </rdf:type>
-  </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Highway">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
@@ -125,7 +107,7 @@
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Train">
     <rdfs:subClassOf>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
+      <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ElectricVehicle">
@@ -143,6 +125,12 @@
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CostEffectivePreference">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
@@ -163,9 +151,13 @@
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Subway">
-    <rdfs:subClassOf>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Electric">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Scooter">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
@@ -177,378 +169,439 @@
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#haveSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#affectsTrafficCondition">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasDistance">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasWeatherCondition">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#usesVehicle">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#chargesVehicle">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasRoute">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasChargingStation">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasUsagePreference">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#usesEnergy">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:subPropertyOf>
       <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
       </rdf:Description>
     </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasDurationForDistance">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasTrafficCondition">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#influencesCO2Emission">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#hasCo2Emission">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#DepartureTime">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2EmissionRate">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#operatesOnWeekend">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#FastSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#SlowSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Type">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#LongDistance">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ConsumptionRate">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#LongDuration">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#LineNumber">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ExactDuration">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingCost">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficLevel">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#DurationValue">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ArrivalTime">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#MediumSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#EmissionValue">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Congested">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Temperature">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#LowEmission">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#StationType">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#MaxSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ShortDistance">
-    <rdfs:domain>
-      <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-    </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Sunny">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Snowy">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#FastCharging">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#prefersEcoFriendlyRoute">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#HighEmission">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2Emission"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Renewable">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherType">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Rainy">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PlanificateurTrajetsEcologiques"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#MediumDistance">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#CO2EmissionValue">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#MediumDuration">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#DistanceValue">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ExactDistance">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#prefersCostEffectiveRoute">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#prefersFastRoute">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#AverageDelay">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingSpeed">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#EnergyConsumption">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#SpeedValue">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Electric">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Vehicle"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ShortDuration">
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_4e7822e4-bce8-46ff-a1e8-626e45d11987">
-    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>3.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730088178346">
-    <PlanificateurTrajetsEcologiques:SpeedValue>100.0</PlanificateurTrajetsEcologiques:SpeedValue>
-    <PlanificateurTrajetsEcologiques:FastSpeed>true</PlanificateurTrajetsEcologiques:FastSpeed>
-    <PlanificateurTrajetsEcologiques:MediumSpeed>false</PlanificateurTrajetsEcologiques:MediumSpeed>
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <PlanificateurTrajetsEcologiques:MediumSpeed>false</PlanificateurTrajetsEcologiques:MediumSpeed>
+    <PlanificateurTrajetsEcologiques:FastSpeed>true</PlanificateurTrajetsEcologiques:FastSpeed>
+    <PlanificateurTrajetsEcologiques:SpeedValue>100.0</PlanificateurTrajetsEcologiques:SpeedValue>
   </PlanificateurTrajetsEcologiques:Speed>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730087900537">
-    <PlanificateurTrajetsEcologiques:SpeedValue>45.0</PlanificateurTrajetsEcologiques:SpeedValue>
-    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
-    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
+    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
+    <PlanificateurTrajetsEcologiques:SpeedValue>45.0</PlanificateurTrajetsEcologiques:SpeedValue>
   </PlanificateurTrajetsEcologiques:Speed>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730040222558">
-    <PlanificateurTrajetsEcologiques:MediumSpeed>false</PlanificateurTrajetsEcologiques:MediumSpeed>
-    <PlanificateurTrajetsEcologiques:FastSpeed>true</PlanificateurTrajetsEcologiques:FastSpeed>
-    <PlanificateurTrajetsEcologiques:SpeedValue>45.0</PlanificateurTrajetsEcologiques:SpeedValue>
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <PlanificateurTrajetsEcologiques:SpeedValue>45.0</PlanificateurTrajetsEcologiques:SpeedValue>
+    <PlanificateurTrajetsEcologiques:FastSpeed>true</PlanificateurTrajetsEcologiques:FastSpeed>
+    <PlanificateurTrajetsEcologiques:MediumSpeed>false</PlanificateurTrajetsEcologiques:MediumSpeed>
   </PlanificateurTrajetsEcologiques:Speed>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_bbee4416-8011-4efd-ba50-2f02766e2d1b">
-    <PlanificateurTrajetsEcologiques:DurationValue>30</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>10.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>0.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>10.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>30</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration1">
-    <PlanificateurTrajetsEcologiques:hasDurationForDistance rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1"/>
-    <PlanificateurTrajetsEcologiques:ExactDuration rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#integer">22</PlanificateurTrajetsEcologiques:ExactDuration>
-    <PlanificateurTrajetsEcologiques:LongDuration rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:LongDuration>
-    <PlanificateurTrajetsEcologiques:MediumDuration rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:MediumDuration>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_24">
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>47.5</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1730058683901">
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>1500.0</PlanificateurTrajetsEcologiques:ConsumptionRate>
+    <PlanificateurTrajetsEcologiques:Type>Solar</PlanificateurTrajetsEcologiques:Type>
+  </PlanificateurTrajetsEcologiques:Energy>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_19">
+    <PlanificateurTrajetsEcologiques:LongDistance>true</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730097811775">
+    <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
+    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
+    <PlanificateurTrajetsEcologiques:SpeedValue>55.0</PlanificateurTrajetsEcologiques:SpeedValue>
+  </PlanificateurTrajetsEcologiques:Speed>
+  <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration1">
     <PlanificateurTrajetsEcologiques:ShortDuration rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:ShortDuration>
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
-  </owl:NamedIndividual>
+    <PlanificateurTrajetsEcologiques:MediumDuration rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:MediumDuration>
+    <PlanificateurTrajetsEcologiques:LongDuration rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">true</PlanificateurTrajetsEcologiques:LongDuration>
+    <PlanificateurTrajetsEcologiques:ExactDuration rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#integer">22</PlanificateurTrajetsEcologiques:ExactDuration>
+    <PlanificateurTrajetsEcologiques:hasDurationForDistance rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </PlanificateurTrajetsEcologiques:Duration>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_9bf6057e-fb4c-4e39-be85-6f8faef796e5">
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>3.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:CO2EmissionValue>3.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
   </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_d01b5ba0-0e7a-414d-b5eb-09d545853e96">
-    <PlanificateurTrajetsEcologiques:DurationValue>60</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>5.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>60</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#SunnyWeather">
-    <PlanificateurTrajetsEcologiques:affectsTrafficCondition>
-      <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition1">
-        <PlanificateurTrajetsEcologiques:AverageDelay rdf:datatype=
-        "http://www.w3.org/2001/XMLSchema#int">15</PlanificateurTrajetsEcologiques:AverageDelay>
-        <PlanificateurTrajetsEcologiques:TrafficLevel>High</PlanificateurTrajetsEcologiques:TrafficLevel>
-        <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition"/>
-      </owl:NamedIndividual>
-    </PlanificateurTrajetsEcologiques:affectsTrafficCondition>
-    <PlanificateurTrajetsEcologiques:Sunny rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >true</PlanificateurTrajetsEcologiques:Sunny>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance2">
+    <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:WeatherCondition rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#SunnyWeather">
+    <PlanificateurTrajetsEcologiques:WeatherType>Sunny</PlanificateurTrajetsEcologiques:WeatherType>
     <PlanificateurTrajetsEcologiques:Temperature rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#float">25.2</PlanificateurTrajetsEcologiques:Temperature>
-    <PlanificateurTrajetsEcologiques:WeatherType>Sunny</PlanificateurTrajetsEcologiques:WeatherType>
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#WeatherCondition"/>
-  </owl:NamedIndividual>
+    <PlanificateurTrajetsEcologiques:Sunny rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</PlanificateurTrajetsEcologiques:Sunny>
+    <PlanificateurTrajetsEcologiques:affectsTrafficCondition>
+      <PlanificateurTrajetsEcologiques:TrafficCondition rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition1">
+        <PlanificateurTrajetsEcologiques:TrafficLevel>High</PlanificateurTrajetsEcologiques:TrafficLevel>
+        <PlanificateurTrajetsEcologiques:AverageDelay rdf:datatype=
+        "http://www.w3.org/2001/XMLSchema#int">15</PlanificateurTrajetsEcologiques:AverageDelay>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </PlanificateurTrajetsEcologiques:TrafficCondition>
+    </PlanificateurTrajetsEcologiques:affectsTrafficCondition>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </PlanificateurTrajetsEcologiques:WeatherCondition>
+  <PlanificateurTrajetsEcologiques:Distance rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_90">
+    <PlanificateurTrajetsEcologiques:ExactDistance>47.5</PlanificateurTrajetsEcologiques:ExactDistance>
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+  </PlanificateurTrajetsEcologiques:Distance>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_10">
+    <PlanificateurTrajetsEcologiques:LongDistance>true</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:TrafficCondition rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_2">
+    <PlanificateurTrajetsEcologiques:TrafficLevel>High</PlanificateurTrajetsEcologiques:TrafficLevel>
+    <PlanificateurTrajetsEcologiques:AverageDelay>15</PlanificateurTrajetsEcologiques:AverageDelay>
+  </PlanificateurTrajetsEcologiques:TrafficCondition>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_29648d04-d5d9-4ac7-afd0-5e2d913d9d08">
-    <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>140.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>140.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730088200145">
-    <PlanificateurTrajetsEcologiques:SpeedValue>70.0</PlanificateurTrajetsEcologiques:SpeedValue>
-    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
-    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
+    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
+    <PlanificateurTrajetsEcologiques:SpeedValue>70.0</PlanificateurTrajetsEcologiques:SpeedValue>
   </PlanificateurTrajetsEcologiques:Speed>
   <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_1730019560279">
-    <PlanificateurTrajetsEcologiques:ChargingSpeed>50.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
-    <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
     <PlanificateurTrajetsEcologiques:StationType>Type 2</PlanificateurTrajetsEcologiques:StationType>
+    <PlanificateurTrajetsEcologiques:FastCharging>true</PlanificateurTrajetsEcologiques:FastCharging>
+    <PlanificateurTrajetsEcologiques:ChargingSpeed>50.0</PlanificateurTrajetsEcologiques:ChargingSpeed>
   </PlanificateurTrajetsEcologiques:ChargingStation>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1730058677447">
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>1500.0</PlanificateurTrajetsEcologiques:ConsumptionRate>
+    <PlanificateurTrajetsEcologiques:Type>Solar</PlanificateurTrajetsEcologiques:Type>
+  </PlanificateurTrajetsEcologiques:Energy>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distancef37de201-abb7-4b90-b0a0-2b2029f18c24">
+    <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_4">
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>15.5</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_636722be-4d7b-47db-8e5c-a738da1545f7">
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>0.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>10.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:DurationValue>30</PlanificateurTrajetsEcologiques:DurationValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>10.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:CO2EmissionValue>0.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
   </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_f3e12c34-4606-42e9-b31c-490bc64ac5f2">
-    <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>5.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>35</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#slowSpeed">
-    <PlanificateurTrajetsEcologiques:SlowSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >true</PlanificateurTrajetsEcologiques:SlowSpeed>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1730058664050">
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>1500.0</PlanificateurTrajetsEcologiques:ConsumptionRate>
+    <PlanificateurTrajetsEcologiques:Type>Solar</PlanificateurTrajetsEcologiques:Type>
+  </PlanificateurTrajetsEcologiques:Energy>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1730058925452">
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>150.5</PlanificateurTrajetsEcologiques:ConsumptionRate>
+    <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
+    <PlanificateurTrajetsEcologiques:Type>electric</PlanificateurTrajetsEcologiques:Type>
+  </PlanificateurTrajetsEcologiques:Energy>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance11b31c70-689e-4686-b34d-e1617dea801e">
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance0b6c1430-e585-4931-adc6-04042fc534a6">
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#slowSpeed">
     <PlanificateurTrajetsEcologiques:SpeedValue rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#float">30.0</PlanificateurTrajetsEcologiques:SpeedValue>
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed"/>
-  </owl:NamedIndividual>
+    <PlanificateurTrajetsEcologiques:SlowSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</PlanificateurTrajetsEcologiques:SlowSpeed>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </PlanificateurTrajetsEcologiques:Speed>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_2">
+    <PlanificateurTrajetsEcologiques:Type>electric</PlanificateurTrajetsEcologiques:Type>
+    <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>22.2</PlanificateurTrajetsEcologiques:ConsumptionRate>
+  </PlanificateurTrajetsEcologiques:Energy>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_ef5b169d-2351-40fe-abfc-79570620695d">
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>200.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:DurationValue>40</PlanificateurTrajetsEcologiques:DurationValue>
-  </PlanificateurTrajetsEcologiques:Route>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_015c3478-0572-4b51-ac5e-6a8b308a8038">
-    <PlanificateurTrajetsEcologiques:DistanceValue>20.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>200.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
-  <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus1">
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distancea10756ba-266a-497a-998f-c6a80708b8f8">
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_79">
+    <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
+    <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
+  </rdf:Description>
+  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_015c3478-0572-4b51-ac5e-6a8b308a8038">
+    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
+    <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>20.0</PlanificateurTrajetsEcologiques:DistanceValue>
+  </PlanificateurTrajetsEcologiques:Route>
+  <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1">
+    <PlanificateurTrajetsEcologiques:ConsumptionRate>22.2</PlanificateurTrajetsEcologiques:ConsumptionRate>
+    <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
+    <PlanificateurTrajetsEcologiques:Type>electric</PlanificateurTrajetsEcologiques:Type>
+  </PlanificateurTrajetsEcologiques:Energy>
+  <PlanificateurTrajetsEcologiques:PublicTransport rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus1">
+    <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
+    <PlanificateurTrajetsEcologiques:LineNumber>527A</PlanificateurTrajetsEcologiques:LineNumber>
+    <PlanificateurTrajetsEcologiques:DepartureTime rdf:datatype=
+    "http://www.w3.org/2001/XMLSchema#dateTime">2024-10-01T08:00:00</PlanificateurTrajetsEcologiques:DepartureTime>
     <PlanificateurTrajetsEcologiques:hasRoute>
       <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route1">
         <PlanificateurTrajetsEcologiques:hasDistance rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1"/>
@@ -563,26 +616,26 @@
         "http://www.w3.org/2001/XMLSchema#float">5.2</PlanificateurTrajetsEcologiques:CO2EmissionValue>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <PlanificateurTrajetsEcologiques:hasUsagePreference>
-          <owl:NamedIndividual rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#EcoFriendlyRoute">
+          <PlanificateurTrajetsEcologiques:UsagePreference rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#EcoFriendlyRoute">
             <PlanificateurTrajetsEcologiques:prefersEcoFriendlyRoute
              rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
             >true</PlanificateurTrajetsEcologiques:prefersEcoFriendlyRoute>
-            <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UsagePreference"/>
-          </owl:NamedIndividual>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </PlanificateurTrajetsEcologiques:UsagePreference>
         </PlanificateurTrajetsEcologiques:hasUsagePreference>
         <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#UrbanRoute"/>
       </PlanificateurTrajetsEcologiques:Route>
     </PlanificateurTrajetsEcologiques:hasRoute>
-    <PlanificateurTrajetsEcologiques:DepartureTime rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#dateTime">2024-10-01T08:00:00</PlanificateurTrajetsEcologiques:DepartureTime>
-    <PlanificateurTrajetsEcologiques:LineNumber>527A</PlanificateurTrajetsEcologiques:LineNumber>
-    <PlanificateurTrajetsEcologiques:operatesOnWeekend rdf:datatype=
-    "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:operatesOnWeekend>
-    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#PublicTransport"/>
-  </owl:NamedIndividual>
+    <rdf:type rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Bus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </PlanificateurTrajetsEcologiques:PublicTransport>
   <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_44b4843b-68e3-4307-8853-04212375f7be">
-    <PlanificateurTrajetsEcologiques:DurationValue>60</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:CO2EmissionValue>1.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>60</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
+  <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_14">
+    <PlanificateurTrajetsEcologiques:LongDistance>true</PlanificateurTrajetsEcologiques:LongDistance>
+    <PlanificateurTrajetsEcologiques:ExactDistance>57.5</PlanificateurTrajetsEcologiques:ExactDistance>
+  </rdf:Description>
 </rdf:RDF>
