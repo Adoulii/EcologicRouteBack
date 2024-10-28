@@ -8,27 +8,33 @@ public class Route {
     private Float co2EmissionValue;
     private Float distanceValue;
     private Integer durationValue;
-
+    private RouteType routeType;
     // Associations
     private List<ChargingStation> chargingStations;
 //    private Distance distance;
 //    private TrafficCondition trafficCondition;
 //    private UsagePreference usagePreference;
 //    private Vehicle vehicle;
-
+    private Speed speed;
     // Constructors, getters, and setters
 
     public Route() {}
 
-    public Route(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue) {
+    public Route(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue, RouteType routeType, Speed speed) {
         this.id = id;
         this.name = name;
         this.co2EmissionValue = co2EmissionValue;
         this.distanceValue = distanceValue;
         this.durationValue = durationValue;
+        this.routeType = routeType;
+        this.speed = speed;
     }
 
     // Getter and setter methods
+
+    public RouteType getRouteType() { return routeType; }
+    public void setRouteType(RouteType routeType) { this.routeType = routeType; }
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -46,7 +52,8 @@ public class Route {
 
     public List<ChargingStation> getChargingStations() { return chargingStations; }
     public void setChargingStations(List<ChargingStation> chargingStations) { this.chargingStations = chargingStations; }
-
+    public Speed getSpeed() { return speed; }  // Getter for Speed
+    public void setSpeed(Speed speed) { this.speed = speed; }
 //    public Distance getDistance() { return distance; }
 //    public void setDistance(Distance distance) { this.distance = distance; }
 //
@@ -62,14 +69,13 @@ public class Route {
 
 // Subclass for UrbanRoute
 class UrbanRoute extends Route {
-    public UrbanRoute(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue) {
-        super(id, name, co2EmissionValue, distanceValue, durationValue);
+    public UrbanRoute(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue, Speed speed) {
+        super(id, name, co2EmissionValue, distanceValue, durationValue, RouteType.valueOf("URBAN_ROUTE"), speed);
     }
 }
 
-// Subclass for Highway
 class Highway extends Route {
-    public Highway(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue) {
-        super(id, name, co2EmissionValue, distanceValue, durationValue);
+    public Highway(String id, String name, Float co2EmissionValue, Float distanceValue, Integer durationValue, Speed speed) {
+        super(id, name, co2EmissionValue, distanceValue, durationValue, RouteType.valueOf("HIGHWAY"), speed);
     }
 }

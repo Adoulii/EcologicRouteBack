@@ -87,7 +87,6 @@ public class SpeedController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteSpeed(@PathVariable("id") String speedId) {
-        // Construct the full URI using the namespace and the provided ID
         String speedURI = NAMESPACE + speedId;
 
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, model);
