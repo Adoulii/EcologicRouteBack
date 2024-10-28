@@ -406,11 +406,6 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration"/>
   </owl:DatatypeProperty>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_4e7822e4-bce8-46ff-a1e8-626e45d11987">
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>3.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
-    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
-  </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730088178346">
     <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
     <PlanificateurTrajetsEcologiques:MediumSpeed>false</PlanificateurTrajetsEcologiques:MediumSpeed>
@@ -434,6 +429,17 @@
     <PlanificateurTrajetsEcologiques:DistanceValue>10.0</PlanificateurTrajetsEcologiques:DistanceValue>
     <PlanificateurTrajetsEcologiques:DurationValue>30</PlanificateurTrajetsEcologiques:DurationValue>
   </PlanificateurTrajetsEcologiques:Route>
+  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_ff05e3c4-bbe7-4225-831c-c119106ccb38">
+    <PlanificateurTrajetsEcologiques:CO2EmissionValue>15.5</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>85.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:DurationValue>50</PlanificateurTrajetsEcologiques:DurationValue>
+    <PlanificateurTrajetsEcologiques:hasChargingStation>
+      <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_f6da5b2e-d289-4f79-a485-fe7bad85663f"/>
+    </PlanificateurTrajetsEcologiques:hasChargingStation>
+    <PlanificateurTrajetsEcologiques:hasChargingStation>
+      <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_cd8834cc-99ab-41f7-991a-b9e3f78f6d07"/>
+    </PlanificateurTrajetsEcologiques:hasChargingStation>
+  </PlanificateurTrajetsEcologiques:Route>
   <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance_24">
     <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
     <PlanificateurTrajetsEcologiques:ExactDistance>47.5</PlanificateurTrajetsEcologiques:ExactDistance>
@@ -446,12 +452,6 @@
     <PlanificateurTrajetsEcologiques:LongDistance>true</PlanificateurTrajetsEcologiques:LongDistance>
     <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
   </rdf:Description>
-  <PlanificateurTrajetsEcologiques:Speed rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Speed_1730097811775">
-    <PlanificateurTrajetsEcologiques:SlowSpeed>false</PlanificateurTrajetsEcologiques:SlowSpeed>
-    <PlanificateurTrajetsEcologiques:MediumSpeed>true</PlanificateurTrajetsEcologiques:MediumSpeed>
-    <PlanificateurTrajetsEcologiques:FastSpeed>false</PlanificateurTrajetsEcologiques:FastSpeed>
-    <PlanificateurTrajetsEcologiques:SpeedValue>55.0</PlanificateurTrajetsEcologiques:SpeedValue>
-  </PlanificateurTrajetsEcologiques:Speed>
   <PlanificateurTrajetsEcologiques:Duration rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Duration1">
     <PlanificateurTrajetsEcologiques:ShortDuration rdf:datatype=
     "http://www.w3.org/2001/XMLSchema#boolean">false</PlanificateurTrajetsEcologiques:ShortDuration>
@@ -464,16 +464,6 @@
     <PlanificateurTrajetsEcologiques:hasDurationForDistance rdf:resource="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance1"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PlanificateurTrajetsEcologiques:Duration>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_9bf6057e-fb4c-4e39-be85-6f8faef796e5">
-    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>30.0</PlanificateurTrajetsEcologiques:DistanceValue>
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>3.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-  </PlanificateurTrajetsEcologiques:Route>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_d01b5ba0-0e7a-414d-b5eb-09d545853e96">
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>5.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>120.0</PlanificateurTrajetsEcologiques:DistanceValue>
-    <PlanificateurTrajetsEcologiques:DurationValue>60</PlanificateurTrajetsEcologiques:DurationValue>
-  </PlanificateurTrajetsEcologiques:Route>
   <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distance2">
     <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
     <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
@@ -502,6 +492,7 @@
     <PlanificateurTrajetsEcologiques:LongDistance>true</PlanificateurTrajetsEcologiques:LongDistance>
     <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
   </rdf:Description>
+  <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_f58fb99b-266c-47ca-a7cb-93784bed42b5"/>
   <PlanificateurTrajetsEcologiques:TrafficCondition rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#TrafficCondition_2">
     <PlanificateurTrajetsEcologiques:TrafficLevel>High</PlanificateurTrajetsEcologiques:TrafficLevel>
     <PlanificateurTrajetsEcologiques:AverageDelay>15</PlanificateurTrajetsEcologiques:AverageDelay>
@@ -526,6 +517,7 @@
     <PlanificateurTrajetsEcologiques:ConsumptionRate>1500.0</PlanificateurTrajetsEcologiques:ConsumptionRate>
     <PlanificateurTrajetsEcologiques:Type>Solar</PlanificateurTrajetsEcologiques:Type>
   </PlanificateurTrajetsEcologiques:Energy>
+  <PlanificateurTrajetsEcologiques:ChargingStation rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#ChargingStation_119079b9-28fb-4eb3-88f0-079d89496c7b"/>
   <rdf:Description rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Distancef37de201-abb7-4b90-b0a0-2b2029f18c24">
     <PlanificateurTrajetsEcologiques:ExactDistance>0.0</PlanificateurTrajetsEcologiques:ExactDistance>
     <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
@@ -568,6 +560,11 @@
     >true</PlanificateurTrajetsEcologiques:SlowSpeed>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PlanificateurTrajetsEcologiques:Speed>
+  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_047933e8-2ef5-4747-944d-5a08c078f428">
+    <PlanificateurTrajetsEcologiques:DurationValue>50</PlanificateurTrajetsEcologiques:DurationValue>
+    <PlanificateurTrajetsEcologiques:DistanceValue>20.0</PlanificateurTrajetsEcologiques:DistanceValue>
+    <PlanificateurTrajetsEcologiques:CO2EmissionValue>12.5</PlanificateurTrajetsEcologiques:CO2EmissionValue>
+  </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_2">
     <PlanificateurTrajetsEcologiques:Type>electric</PlanificateurTrajetsEcologiques:Type>
     <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
