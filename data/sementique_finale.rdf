@@ -560,11 +560,6 @@
     >true</PlanificateurTrajetsEcologiques:SlowSpeed>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PlanificateurTrajetsEcologiques:Speed>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_047933e8-2ef5-4747-944d-5a08c078f428">
-    <PlanificateurTrajetsEcologiques:DurationValue>50</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>20.0</PlanificateurTrajetsEcologiques:DistanceValue>
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>12.5</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-  </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_2">
     <PlanificateurTrajetsEcologiques:Type>electric</PlanificateurTrajetsEcologiques:Type>
     <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
@@ -583,11 +578,6 @@
     <PlanificateurTrajetsEcologiques:ExactDistance>17.5</PlanificateurTrajetsEcologiques:ExactDistance>
     <PlanificateurTrajetsEcologiques:LongDistance>false</PlanificateurTrajetsEcologiques:LongDistance>
   </rdf:Description>
-  <PlanificateurTrajetsEcologiques:Route rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Route_015c3478-0572-4b51-ac5e-6a8b308a8038">
-    <PlanificateurTrajetsEcologiques:DurationValue>10</PlanificateurTrajetsEcologiques:DurationValue>
-    <PlanificateurTrajetsEcologiques:CO2EmissionValue>2.4</PlanificateurTrajetsEcologiques:CO2EmissionValue>
-    <PlanificateurTrajetsEcologiques:DistanceValue>20.0</PlanificateurTrajetsEcologiques:DistanceValue>
-  </PlanificateurTrajetsEcologiques:Route>
   <PlanificateurTrajetsEcologiques:Energy rdf:about="http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#Energy_1">
     <PlanificateurTrajetsEcologiques:ConsumptionRate>22.2</PlanificateurTrajetsEcologiques:ConsumptionRate>
     <PlanificateurTrajetsEcologiques:Renewable>true</PlanificateurTrajetsEcologiques:Renewable>
