@@ -192,7 +192,7 @@ public class WeatherConditionController {
     }
 
     @GetMapping("/weathers/{id}")
-    public String getWeatherById(@PathVariable String id) {
+    public String getWeatherBysId(@PathVariable String id) {
         OntModel model = ontologyService.getModel();
         String namespace = "http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#";
         String weatherURI = namespace + id;
@@ -240,6 +240,42 @@ public class WeatherConditionController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Weather condition not found.");
         }
     }
+
+    // Get a specific weather condition by ID
+    @GetMapping("/weather/{id}")
+    public ResponseEntity<String> getWeatherById(@PathVariable String id) {
+        OntModel model = ontologyService.getModel();
+        String namespace = "http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#";
+        String weatherURI = namespace + id;
+
+        // Proper string concatenation for the SPARQL query
+        String queryString = """
+        PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT ?weatherType ?sunny ?snowy ?rainy ?temperature
+        WHERE {
+            <%s> rdf:type ont:WeatherCondition;
+                  ont:WeatherType ?weatherType;
+                  ont:Sunny ?sunny;
+                  ont:Snowy ?snowy;
+                  ont:Rainy ?rainy;
+                  ont:Temperature ?temperature.
+        }
+        """.formatted(weatherURI);
+
+        QueryExecution qe = QueryExecutionFactory.create(queryString, model);
+        ResultSet results = qe.execSelect();
+
+        if (!results.hasNext()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"Weather condition not found.\"}");
+        }
+
+        // Convert to JSON
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ResultSetFormatter.outputAsJSON(outputStream, results);
+        return ResponseEntity.ok(new String(outputStream.toByteArray()));
+    }
+
 
 
 

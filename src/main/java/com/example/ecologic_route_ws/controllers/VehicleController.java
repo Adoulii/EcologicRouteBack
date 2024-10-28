@@ -232,6 +232,42 @@
             return j.getJSONObject("results").getJSONArray("bindings").toString();
         }
 
+        @GetMapping("/vehicle/{id}")
+        public ResponseEntity<String> getVehicleById(@PathVariable String id) {
+            OntModel model = ontologyService.getModel();
+            String namespace = "http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#";
+            String vehicleURI = namespace + id;
+
+            // Proper string concatenation for the SPARQL query
+            String queryString = """
+        PREFIX ont: <http://www.semanticweb.org/imenfrigui/ontologies/2024/8/PlanificateurTrajetsEcologiques#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT ?vehicleType ?isElectric ?maxSpeed ?energyConsumption ?co2EmissionRate ?publicTransport
+        WHERE {
+            <%s> rdf:type ont:Vehicle;
+                 ont:Type ?vehicleType;
+                 ont:Electric ?isElectric;
+                 ont:MaxSpeed ?maxSpeed;
+                 ont:EnergyConsumption ?energyConsumption;
+                 ont:CO2EmissionRate ?co2EmissionRate;
+                 ont:PublicTransport ?publicTransport.
+        }
+    """.formatted(vehicleURI);
+
+            QueryExecution qe = QueryExecutionFactory.create(queryString, model);
+            ResultSet results = qe.execSelect();
+
+            if (!results.hasNext()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"Vehicle not found.\"}");
+            }
+
+            // Convert to JSON
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ResultSetFormatter.outputAsJSON(outputStream, results);
+            return ResponseEntity.ok(new String(outputStream.toByteArray()));
+        }
+
+
 
 
 
